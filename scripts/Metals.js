@@ -7,12 +7,15 @@ document.addEventListener(
     "change",
     (event) => {
         if (event.target.name === "metal") {
-            window.alert(`User chose metal ${event.target.value}`)
+            setMetal(parseInt(event.target.value))
+            // window.alert(`User chose metal ${event.target.value}`)
         }
     }
 )
 
 export const Metals = () => {
+    const customOrder = getCurrentOrder()
+    // ${customOrder.metalId === metal.id ? "ch 
     let html = "<ul>"
 
     // This is how you have been converting objects to <li> elements
@@ -21,8 +24,11 @@ export const Metals = () => {
             <input type="radio" name="metal" value="${metal.id}" /> ${metal.metal}
         </li>`
     }
-
+    
     html += "</ul>"
+
     return html
 }
 
+
+    

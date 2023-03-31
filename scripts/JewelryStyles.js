@@ -1,11 +1,20 @@
-import { getStyles } from "./database.js"
 
+// import get styles to have access to array in database component
+import { getStyles, setStyle } from "./database.js"
+// define and invoke
 const styles = getStyles()
+//setStyle()
+
 
 document.addEventListener(
     "change",
     (event) => {
-    }
+        //for (const style of styles) {
+        if (event.target.name === "style") {
+            setStyle(parseInt(event.target.value))
+            //window.alert(`User choses style ${event.target.value}`)
+        }
+}
 )
 
 export const JewelryStyles = () => {
@@ -19,11 +28,11 @@ export const JewelryStyles = () => {
     })
 
     
-
-
+    
+    
     // Join all of the strings in the array into a single string
     html += listItemsArray.join("")
-
+    
     html += "</ul>"
     return html
 }
